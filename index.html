@@ -1,30 +1,53 @@
 <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vista previa HTML</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 20px;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plataforma Verificada | Bc Online</title>
-  <link rel="icon" type="image/png" href="http://imgfz.com/i/gG8bTM6.jpeg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plataforma Verificada | BC online</title>
+  <link rel="icon" type="image/png" href="http://imgfz.com/i/gG8bTM6.jpeg" />
 
   <!-- ✅ PIXEL DE META -->
   <script>
-    !function(f,b,e,v,n,t,s) {
-      if(f.fbq) return;
-      n=f.fbq=function(){n.callMethod ?
-      n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
-      if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-      n.queue=[]; t=b.createElement(e); t.async=!0;
-      t.src=v; s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2372161916484346'); // ID del píxel de Facebook
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src='https://connect.facebook.net/en_US/fbevents.js';
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script');
+
+    fbq('init', '2372161916484346'); // 👈 Datos Santi
     fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
          src="https://www.facebook.com/tr?id=2372161916484346&ev=PageView&noscript=1"/>
   </noscript>
-  <!-- End Pixel Code -->
+
+  <!-- ✅ GOOGLE ANALYTICS 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // 👈 Reemplazá por tu ID GA4
+  </script>
 
   <style>
     * {
@@ -37,42 +60,60 @@
     body {
       background-color: #ffffff;
       color: #111b21;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
     }
 
-    .container {
-      text-align: center;
+    header {
       padding: 20px;
-      max-width: 600px;
-      margin: 20px;
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    main {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo-circle {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #25d366;
+      font-weight: 500;
       margin-bottom: 20px;
     }
 
-    p {
-      font-size: 1.2em;
+    .cta-box {
+      background-color: #eef6f3;
+      padding: 15px 20px;
+      border-radius: 10px;
       margin-bottom: 20px;
-    }
-
-    .whatsapp-logo {
-      width: 50px;
-      margin-bottom: 20px;
+      font-size: 16px;
     }
 
     .cta-button {
-      background-color: #25d366; /* Color de WhatsApp */
+      background-color: #25d366;
       color: white;
       padding: 14px 30px;
       font-size: 16px;
@@ -100,67 +141,84 @@
       padding-bottom: 80px;
     }
 
-    /* Estilos para las notificaciones */
-    .xpo-notification-wrap {
-      position: fixed;
-      background: #1e1e1e;
-      color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      padding: 10px 14px;
+    .happy-customers {
       display: flex;
       align-items: center;
-      width: 280px;
-      z-index: 9999;
-      border: 1px solid #333;
-      backdrop-filter: blur(6px);
-      opacity: 0;
-      left: -300px;
-      bottom: 100px;
-      transition: all 0.5s ease;
-    }
-
-    .xpo-notification-wrap.show {
-      left: 20px;
-      opacity: 1;
-    }
-
-    .xpo-img-wrap img {
-      width: 42px;
-      height: 42px;
-      border-radius: 6px;
-      object-fit: cover;
-      border: 1px solid #444;
-    }
-
-    .xpo-col {
-      margin-left: 12px;
-    }
-
-    .xpo-notification-name {
+      justify-content: center;
+      background-image: linear-gradient(45deg, #1cbcc3, #4abf8f 80%);
+      border-radius: 50px;
+      padding: 8px 15px;
+      margin-top: 25px;
+      font-size: 12px;
+      color: white;
       font-weight: bold;
-      font-size: 0.9em;
-      color: #fff;
     }
 
-    .xpo-notification-product {
-      font-size: 0.85em;
-      color: #22d3ee;
+    .avatars {
+      display: flex;
+      margin-right: 10px;
     }
 
-    .xpo-location {
-      font-size: 0.75em;
-      color: #cbd5e1;
+    .avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid white;
+      margin-left: -6px;
+      object-fit: cover;
     }
 
-    .xpo-location::before {
-      content: "📍";
-      margin-right: 4px;
+    .trustpilot-container {
+      display: flex;
+      align-items: center;
+      background-color: #e9fff9;
+      border: 1px dashed #898686;
+      border-radius: 8px;
+      padding: 6px 12px;
+      margin-top: 20px;
+      gap: 8px;
+      justify-content: center;
     }
 
+    .trustpilot-image { width: 60px; }
+    .trustpilot-logo { width: 70px; }
+    .trustpilot-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #000000;
+    }
+    .trustpilot-rating {
+      font-size: 10px;
+      font-weight: 500;
+      color: #000000;
+    }
+
+    .bono-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #16a34a, #25d366);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      animation: flash 2s infinite;
+      z-index: 999;
+    }
+
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 22px; }
+      h2 { font-size: 18px; }
+    }
   </style>
 </head>
-
 <body>
 
   <header>
@@ -168,16 +226,22 @@
   </header>
 
   <main>
-    <div class="container">
-      <h1>Plataforma de Confianza🚀</h1>
-      <h2>Equipo de Soporte las 24 horas</h2>
-      <div class="cta-box">
-        Te estamos conectando con nuestro equipo vía WhatsApp.
-      </div>
-      <a href="https://wa.link/bconline" class="cta-button" onclick="fbq('track', 'Lead');">
-        Ir a WhatsApp Ahora
-      </a>
+    <div class="logo-circle">
+      <img src="https://i.imgur.com/XKG32VD.png" alt="TroyaLuck" />
     </div>
+
+    <h1>BONUS DEL 200%🎁</h1>
+    <h2>✅PLATAFORMA VERIFICADA✅</h2>
+
+    <div class="cta-box">
+      Te estamos conectando con nuestro equipo vía WhatsApp.
+    </div>
+
+    <a href="https://wa.link/bconline" 
+       class="cta-button" 
+       onclick="fbq('track', 'Lead');">
+       Ir a WhatsApp Ahora
+    </a>
 
     <div id="happy-customers-container"></div>
 
@@ -190,11 +254,11 @@
   </main>
 
   <footer>
-    © 2025 Bc Online. Todos los derechos reservados.
+    © 2025 BC ONLINE. Todos los derechos reservados.
   </footer>
 
-  <!-- ✅ Barra fija -->
-  <div class="bono-bar">Tu Usuario es GRATIS - ¡Solicitalo ahora por WhatsApp!🍀</div>
+  <!-- ✅ Bono Activo -->
+  <div class="bono-bar">🎁 BONO ACTIVO - ¡Solicitalo ahora por WhatsApp!</div>
 
   <!-- Clientes Felices -->
   <script>
@@ -228,12 +292,12 @@
         intervalo: 2,
         duracion: 2,
         tiempoMaximo: 2,
-        productName: "Premios Enviados✅",
+        productName: "Premios Enviados🍀",
         productImage: "http://imgfz.com/i/gG8bTM6.jpeg"
       };
 
-      const nombres = ["Diana Rodriguez", "Silvina Santos", "Juan Raul", "Demi Nuñez", "Ezequiel Reinaldo"];
-      const ciudades = ["Santa Fé", "Córdoba", "Catamarca", "Entre Rios", "Buenos Aires"];
+      const nombres = ["Silvina Santos", "Juan Rodriguez", "Carlos Alvidia", "Laura Montes", "Lucio Avalos"];
+      const ciudades = ["Buenos Aires", "Córdoba", "Entre Rios", "Tucuman", "Buenos Aires"];
 
       function getRandom(arr) {
         return arr[Math.floor(Math.random() * arr.length)];
@@ -315,4 +379,5 @@
 
 </body>
 </html>
-
+    </body>
+    </html>
