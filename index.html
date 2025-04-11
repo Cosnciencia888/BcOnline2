@@ -34,15 +34,13 @@
     }
 
     body {
-      background: url('https://i.pinimg.com/736x/6e/6e/d8/6e6ed8d2a634b94c65e504e4692c4bff.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #ffffff; /* Texto blanco para contraste */
+      background-color: #ffffff; /* Fondo blanco */
+      color: #111b21; /* Texto oscuro */
     }
 
     header {
       padding: 20px;
       text-align: center;
-      border-bottom: 1px solid #e0e0e0;
     }
 
     header img {
@@ -73,7 +71,7 @@
     h1 {
       font-size: 26px;
       margin-bottom: 10px;
-      color: #ffffff;
+      color: #111b21; /* Texto oscuro */
     }
 
     h2 {
@@ -88,7 +86,8 @@
       border-radius: 10px;
       margin-bottom: 20px;
       font-size: 16px;
-      color: #000000; /* Texto oscuro */
+      color: #111b21; /* Texto oscuro */
+      border: 1px solid #dddddd; /* Borde gris claro */
     }
 
     .cta-button {
@@ -120,14 +119,45 @@
       padding-bottom: 80px;
     }
 
-    .bono-bar {
-      display: none; /* Eliminamos la barra inferior violeta */
-    }
-
     @media (max-width: 480px) {
       h1 { font-size: 22px; }
       h2 { font-size: 18px; }
     }
+
+    /* Notificaciones */
+    .xpo-notification-wrap {
+      position: fixed;
+      background: #f9f9f9; /* Fondo claro */
+      color: #111b21; /* Texto oscuro */
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      width: 220px; /* Más pequeño */
+      z-index: 9999;
+      border: 1px solid #dddddd; /* Borde gris claro */
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      right: -300px; /* Posición inicial */
+      bottom: 80px; /* Más cerca del borde inferior */
+      transition: all 0.5s ease;
+    }
+
+    .xpo-notification-wrap.show { right: 20px; opacity: 1; } /* Mostrar en la derecha */
+    .xpo-img-wrap img {
+      width: 36px; /* Tamaño reducido */
+      height: 36px;
+      border-radius: 6px;
+      object-fit: cover;
+      border: 1px solid #cccccc; /* Borde claro */
+    }
+
+    .xpo-col { margin-left: 10px; }
+    .xpo-notification-name { font-weight: bold; font-size: 0.9em; color: #111b21; }
+    .xpo-notification-product { font-size: 0.8em; color: #25d366; }
+    .xpo-location { font-size: 0.75em; color: #555555; }
+    .xpo-location::before { content: "📍"; margin-right: 4px; }
   </style>
 </head>
 <body>
@@ -141,8 +171,8 @@
       <img src="https://i.imgur.com/gjtusVI.jpeg" alt="TroyaLuck" />
     </div>
 
-    <h1>BONUS DEL 200%🎁</h1>
-    <h2>✅PLATAFORMA VERIFICADA✅</h2>
+    <h1>🎁BONUS DEL 200%🎁</h1>
+    <h2>PLATAFORMA DE CONFIANZA✅</h2>
 
     <div class="cta-box">
       Te estamos conectando con nuestro equipo vía WhatsApp.
@@ -158,6 +188,60 @@
   <footer>
     © 2025 BC ONLINE. Todos los derechos reservados.
   </footer>
+
+  <!-- Script de Notificaciones -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const config = {
+        intervalo: 3,
+        duracion: 3,
+        tiempoMaximo: 2,
+        productName: "Premios Enviados🍀",
+        productImage: "https://i.imgur.com/Oyx38be.jpeg" /* Imagen de notificaciones */
+      };
+
+      const nombres = ["Silvina Santos", "Juan Rodriguez", "Carlos Alvidia", "Laura Montes", "Lucio Avalos"];
+      const ciudades = ["Buenos Aires", "Córdoba", "Entre Rios", "Tucuman", "Buenos Aires"];
+
+      function getRandom(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      function getTimeAgo() {
+        const h = Math.floor(Math.random() * config.tiempoMaximo);
+        const m = Math.floor(Math.random() * 60);
+        return h === 0 ? `hace ${m} minutos` : `hace ${h} hora${h > 1 ? 's' : ''}`;
+      }
+
+      function showNotification() {
+        const nombre = getRandom(nombres);
+        const ciudad = getRandom(ciudades);
+        const tiempo = getTimeAgo();
+
+        const noti = document.createElement("div");
+        noti.className = "xpo-notification-wrap";
+        noti.innerHTML = `
+          <div class="xpo-img-wrap">
+            <img src="${config.productImage}" alt="Premio">
+          </div>
+          <div class="xpo-col">
+            <div class="xpo-notification-name">${nombre}</div>
+            <div class="xpo-notification-product">${config.productName}</div>
+            <div class="xpo-location">Desde ${ciudad} • ${tiempo}</div>
+          </div>
+        `;
+        document.body.appendChild(noti);
+        setTimeout(() => noti.classList.add("show"), 100);
+        setTimeout(() => {
+          noti.classList.remove("show");
+          setTimeout(() => noti.remove(), 500);
+        }, config.duracion * 1000);
+      }
+
+      showNotification();
+      setInterval(showNotification, config.intervalo * 1000);
+    });
+  </script>
 
 </body>
 </html>
