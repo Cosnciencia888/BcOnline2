@@ -80,27 +80,17 @@
       margin-bottom: 20px;
     }
 
-    .cta-box {
-      background-color: #ffffff; /* Fondo blanco */
-      padding: 15px 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      font-size: 16px;
-      color: #111b21; /* Texto oscuro */
-      border: 1px solid #dddddd; /* Borde gris claro */
-    }
-
     .cta-button {
       background-color: #25d366; /* Verde del botón */
       color: white;
-      padding: 14px 30px;
-      font-size: 16px;
+      padding: 18px 40px; /* Botón más grande */
+      font-size: 18px; /* Texto más grande */
       font-weight: bold;
       border: none;
-      border-radius: 25px;
+      border-radius: 30px; /* Botón más redondeado */
       text-decoration: none;
       display: inline-block;
-      margin-top: 10px;
+      margin-bottom: 20px; /* Espacio entre botón y la caja */
       animation: pulse 1.5s infinite;
       cursor: pointer;
     }
@@ -111,17 +101,22 @@
       100% { transform: scale(1); }
     }
 
+    .cta-box {
+      background-color: #ffffff; /* Fondo blanco */
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #111b21; /* Texto oscuro */
+      border: 1px solid #dddddd; /* Borde gris claro */
+    }
+
     footer {
       text-align: center;
       font-size: 13px;
       color: #999;
       margin-top: 60px;
       padding-bottom: 80px;
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 22px; }
-      h2 { font-size: 18px; }
     }
 
     /* Notificaciones */
@@ -140,7 +135,7 @@
       backdrop-filter: blur(4px);
       opacity: 0;
       right: -300px; /* Posición inicial */
-      bottom: 80px; /* Más cerca del borde inferior */
+      bottom: 20px; /* Más cerca del borde inferior */
       transition: all 0.5s ease;
     }
 
@@ -171,18 +166,20 @@
       <img src="https://i.imgur.com/gjtusVI.jpeg" alt="TroyaLuck" />
     </div>
 
-    <h1>🎁BONUS DEL 200%🎁</h1>
-    <h2>PLATAFORMA DE CONFIANZA✅</h2>
+    <h1>BONUS DEL 200%🎁</h1>
+    <h2>✅PLATAFORMA VERIFICADA✅</h2>
 
-    <div class="cta-box">
-      Te estamos conectando con nuestro equipo vía WhatsApp.
-    </div>
-
+    <!-- Botón de llamado a la acción -->
     <a href="https://wa.link/bconline" 
        class="cta-button" 
        onclick="fbq('track', 'Lead');">
        Ir a WhatsApp Ahora
     </a>
+
+    <!-- Caja de texto -->
+    <div class="cta-box">
+      Te estamos conectando con nuestro equipo vía WhatsApp.
+    </div>
   </main>
 
   <footer>
